@@ -1,0 +1,23 @@
+<template name="folder">
+  <div class="folder">
+    <div class="path">
+      <a href="/{{username}}">{{username}}</a> / <a href="/{{username}}/{{foldername}}"><strong>{{foldername}}</strong></a>
+    </div>
+    <div class="new-group btn btn-success">Add a New Group <span class="glyphicon glyphicon-plus"></span></div>
+    <div id="new-group"></div>
+    {{#each groups}}
+      <div class="group-container">
+        <div class="group-name">{{name}}</div>
+        <div class="group-description">{{description}}</div>
+        <table class="table group-members">
+          {{#each members}}
+            <tr>
+              <td><a>{{name}}</a></td>
+              <td>{{email}}</td>
+            </tr>
+          {{/each}}
+        </table>
+      </div>
+    {{/each}}
+  </div>
+</template>

@@ -34,4 +34,5 @@ Workflow:
     - Group member still has access to form
 6. Admin can send review results to students/groups
     - Check either student, group, or whole folder?
+7. Members can view their review
 
