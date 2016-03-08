@@ -1,0 +1,86 @@
+<template name="newForm">
+  <div class="new-form-container">
+    <div class="new-form-title">
+      <div class="title">Create a new form</div>
+      <div class="description">A form contains peer review questions that you can send to groups.</div>
+    </div>
+    <div></div>
+    <div class="name">
+      <label>Name</label>
+      <input type="text" class="form-control new-form-name" value="{{name}}">
+    </div>
+    <div class="description">
+      <label>Description</label>
+      <input type="text" class="form-control new-form-description" value="{{description}}">
+    </div>
+    <div class="new-form btn btn-success">Add a Question<span class="glyphicon glyphicon-list"></span></div>
+    <div id="new-question"></div>
+  </div>
+</template>
+
+<template name="newQuestion">
+  <div class="new-question-container">
+    <div class="title">Add a new question:</div><hr>
+    <fieldset class="form-group">
+      <label>Question Type</label>
+      <select class="question-type-select">
+        <option selected disabled hidden value="none">None Selected</option>
+        <option value="text">Text</option>
+        <option value="dropdown">Dropdown</option>
+      </select>
+    </fieldset>
+
+    {{#if typeIs 'text'}}
+    <fieldset class="form-group">
+      <label>Question</label>
+      <input type="text" class="form-control new-form-description" value="{{description}}">
+    </fieldset>
+    <div class="fake-textbox">Text Box Input</div>
+    {{/if}}
+
+    {{#if typeIs 'dropdown'}}
+      <label>Question</label>
+      <input type="text" class="form-control new-form-description" value="{{description}}">
+
+      <div class="multi-options">
+        {{#each options}}
+          <div class="option">
+            <div class="bullet"></div><input type="text" class="form-control option-text" value="Option {{@index}}">
+          </div>
+        {{/each}}
+        <div class="option">
+          <div class="bullet"></div><div class="add-option">Add another option</div>
+        </div>
+      </div>
+
+    {{/if}}
+
+
+
+<!--     <fieldset class="form-group">
+      <label>Members</label>
+      <table class="table table-inverse">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each members}}
+            <tr>
+              <th scope="row">{{inc @index}}</th>
+              <td><input type="text" class="form-control member-name" placeholder="Name" value="{{this.name}}"></td>
+              <td><input type="email" class="form-control member-email" placeholder="Email" value="{{this.email}}"></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <small class="new-row"><a>Add Another Row</a></small>
+    </fieldset> -->
+
+    <button class="new-question-create btn btn-success">Create<span class="glyphicon glyphicon-user"></span></button>
+    <button class="new-question-cancel btn btn-danger">Cancel<span class="glyphicon glyphicon-remove"></span></button>
+  </div>
+</template>

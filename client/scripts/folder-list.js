@@ -9,6 +9,16 @@ Template.folderList.helpers({
 
   date: function(time) {
     return moment(time).format('dddd ll');
+  },
+
+  forms: function() {
+    return [];
+  }
+});
+
+Template.folderList.events({
+  'click .new-form': function() {
+    Router.go('/forms/new');
   }
 });
 

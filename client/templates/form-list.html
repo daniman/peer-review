@@ -1,0 +1,18 @@
+<template name="formList">
+  <div class="form-container">
+    <div class="test-toggle">meow</div>
+    <div class="title">Your Forms:</div>
+    <div class="new-form btn btn-success">Create a New Form<span class="glyphicon glyphicon-list"></span></div>
+    <ul id="form-list">
+      {{#each forms}}
+        meow
+      {{else}}
+        <li>
+          <div class="form-title"><a>You don't have any forms yet!</a></div>
+          <div class="form-description">testing</div>
+          <div class="form-created">fake date woohoo</div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

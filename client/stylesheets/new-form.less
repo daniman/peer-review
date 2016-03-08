@@ -1,0 +1,137 @@
+.new-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .new-form-title {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    margin: 0 0 20px 0;
+
+    .title {
+      font-size: 1.45em;
+      color: #333;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #767676;
+      margin-top: 5px;
+    }
+  }
+
+  .new-form {
+    margin-top: 20px;
+  }
+
+  .name {
+    color: #333;
+    font-size: .9em;
+
+    input {
+      max-width: 360px;
+    }
+  }
+
+  .description {
+    color: #333;
+    font-size: .9em;
+    margin-top: 20px;
+  }
+
+  .new-question-container {
+    margin-top: 20px;
+    background-color: #f8eec7;
+    border: 1px solid #f2e09a;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 750px;
+
+
+    .multi-options {
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      .option {
+        div {
+          display: inline-block;
+        }
+
+        .add-option {
+          line-height: 34px;
+          vertical-align: middle;
+        }
+
+        .bullet {
+          height: 16px;
+          width: 16px;
+          margin: 9px;
+          border: 2px solid #333;
+          vertical-align: top;
+          border-radius: 8px;
+        }
+
+        input {
+          display: inline-block;
+          width: calc(~"100% - 34px");
+        }
+      }
+    }
+
+    hr {
+      border-style: solid none;
+      border-bottom: none;
+      border-right: none;
+      border-left: none;
+      border-top: 1px solid #d9c98a;
+    }
+
+    label small.text-muted {
+      font-weight: normal;
+    }
+
+    .title {
+      font-size: 1.15em;
+      color: #796620;
+    }
+
+    .fake-textbox {
+      border: 2px dotted #ccc;
+      line-height: 60px;
+      font-size: .85em;
+      color: #888;
+      text-align: center;
+      margin: 10px 0 20px;
+      background-color: #eee;
+    }
+
+    .table {
+      border-spacing: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      max-width: 500px;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      margin-bottom: 0;
+
+      td {
+        padding: 0;
+        word-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      input {
+        border-radius: 0;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        padding: 6px 8px;
+      
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

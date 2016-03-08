@@ -1,0 +1,40 @@
+<template name="newGroup">
+  <div class="new-group-container">
+    <div class="title">Create a New Group:</div><hr>
+    <fieldset class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control new-group-name" placeholder="Enter Group Name" value="{{name}}">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Description <small class="text-muted">(optional)</small></label>
+      <input type="text" class="form-control new-group-description" placeholder="Enter Group Description" value="{{description}}">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Members</label>
+
+      <table class="table table-inverse">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each members}}
+            <tr>
+              <th scope="row">{{inc @index}}</th>
+              <td><input type="text" class="form-control member-name" placeholder="Name" value="{{this.name}}"></td>
+              <td><input type="email" class="form-control member-email" placeholder="Email" value="{{this.email}}"></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <small class="new-row"><a>Add Another Row</a></small>
+
+    </fieldset>
+
+    <button class="new-group-create btn btn-success">Create<span class="glyphicon glyphicon-user"></span></button>
+    <button class="new-group-cancel btn btn-danger">Cancel<span class="glyphicon glyphicon-remove"></span></button>
+  </div>
+</template>

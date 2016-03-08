@@ -15,13 +15,29 @@ Router.route('/', {
   }
 });
 
+Router.route('/forms/new', {
+  action: function() {
+    this.render('newForm');
+  }
+});
+
 Router.route('/:username', {
     waitOn: function() {
       return [Meteor.subscribe('user-data'), Meteor.subscribe('folders')];
     },
     action: function() {
       console.log(Meteor.user());
-      if (Meteor.user() && Meteor.user().username == this.params.username) {
+      console.log(this.params.query);
+      
+      if (Meteor.user() && Meteor.user().username == this.params.username && this.params.query['tab'] == 'forms') {
+        this.render('formList', {
+          data: function() {
+            return Folders.find().fetch().sort(function(a, b) {
+              return new Date(b.createdAt) - new Date(a.createdAt);
+            });
+          }
+        });
+      } else if (Meteor.user() && Meteor.user().username == this.params.username) {
         this.render('folderList', {
           data: function() {
             return Folders.find().fetch().sort(function(a, b) {
