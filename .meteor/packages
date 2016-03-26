@@ -25,3 +25,4 @@ reactive-var
 reactive-dict
 iron:router
 momentjs:moment
+email

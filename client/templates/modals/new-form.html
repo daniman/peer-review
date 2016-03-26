@@ -1,0 +1,21 @@
+<template name="newForm">
+    <div class="modal fade" id="newForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-title">Create a New Form</div>
+          </div>
+
+          <div class="modal-body">
+            <div class="input-label">Enter a <strong>name</strong> for your new form:</div>
+            <input type="text" class="form-control" placeholder="New Form Name" id="new-form-name">
+          </div>
+
+          <div class="modal-footer">
+            <a href="#" id="new-form-create" class="export btn btn-info" disabled="{{disabled}}" data-dismiss="modal">Create</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</template>

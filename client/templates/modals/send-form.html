@@ -1,0 +1,25 @@
+<template name="sendForm">
+    <div class="modal fade" id="sendForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-title">Send a form to a group.</div>
+          </div>
+
+          <div class="modal-body">
+            <div class="input-label">Please <strong>select</strong> which form you would like to send:</div>
+            <select id="form-select">
+              {{#each forms}}
+                <option>{{name}}</option>
+              {{/each}}
+            </select>
+          </div>
+
+          <div class="modal-footer">
+            <a href="#" id="send-form" class="export btn btn-info" data-dismiss="modal">Send Form</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</template>

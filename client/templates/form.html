@@ -1,10 +1,10 @@
-<template name="newForm">
+<template name="form">
   <div class="new-form-container">
-    <div class="new-form-title">
+<!--     <div class="new-form-title">
       <div class="title">Create a new form</div>
       <div class="description">A form contains peer review questions that you can send to groups.</div>
-    </div>
-    <div></div>
+    </div> -->
+    <!-- <div></div> -->
     <div class="name">
       <label>Name</label>
       <input type="text" class="form-control new-form-name" value="{{name}}">
@@ -13,8 +13,18 @@
       <label>Description</label>
       <input type="text" class="form-control new-form-description" value="{{description}}">
     </div>
-    <div class="new-form btn btn-success">Add a Question<span class="glyphicon glyphicon-list"></span></div>
+    <div class="new-question btn btn-success">Add a Question<span class="glyphicon glyphicon-list"></span></div>
     <div id="new-question"></div>
+    {{#each questions}}
+      {{#if typeIs type 'text'}}
+        <div class="question-container">
+          {{inc @index}}. {{question}}
+        </div>
+      {{/if}}
+      {{#if typeIs type 'dropdown'}}
+        <h1>Can't handle dropdowns yet sorry...</h1>
+      {{/if}}
+    {{/each}}
   </div>
 </template>
 
@@ -33,7 +43,7 @@
     {{#if typeIs 'text'}}
     <fieldset class="form-group">
       <label>Question</label>
-      <input type="text" class="form-control new-form-description" value="{{description}}">
+      <input type="text" class="form-control new-question-text">
     </fieldset>
     <div class="fake-textbox">Text Box Input</div>
     {{/if}}
@@ -45,7 +55,7 @@
       <div class="multi-options">
         {{#each options}}
           <div class="option">
-            <div class="bullet"></div><input type="text" class="form-control option-text" value="Option {{@index}}">
+            <div class="bullet"></div><input type="text" class="form-control option-text" placeholder="Option {{@index}}">
           </div>
         {{/each}}
         <div class="option">

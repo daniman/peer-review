@@ -7,13 +7,24 @@
     <div id="new-group"></div>
     {{#each groups}}
       <div class="group-container">
+        <div class="btn btn-primary send-form-to-group">Send Form</div>
         <div class="group-name">{{name}}</div>
         <div class="group-description">{{description}}</div>
         <table class="table group-members">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            {{#each forms}}
+              <th>{{nameForm form}}</th>
+            {{/each}}
+          </tr>
           {{#each members}}
             <tr>
               <td><a>{{name}}</a></td>
               <td>{{email}}</td>
+              {{#each ../forms}}
+                <td>{{status ../../_id @index ../email}}</td>
+              {{/each}}
             </tr>
           {{/each}}
         </table>

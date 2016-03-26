@@ -1,0 +1,30 @@
+<template name="input">
+  <div class="input-container">
+    <h2>Hello {{name}},</h2>
+    <div>Please provide feedback for your team members.</div>
+    <div>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th class="peer-name">Name</th>
+            {{#each questions}}
+              <th>{{question}}</th>
+            {{/each}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each peers}}
+            <tr peer="{{this}}">
+              <td class="peer-name">
+                {{this}}
+              </td>
+              {{#each questions}}
+                <td class="input-cell" key="{{key}}" contenteditable="true">{{response key ..}}</td>
+              {{/each}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>

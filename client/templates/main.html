@@ -1,16 +1,14 @@
-<template name="folderList">
+<template name="main">
   <div class="row folder-container">
     <div class="col-sm-6">
       <div class="title">Your Forms:</div>
       <div class="new-form btn btn-success">Create a New Form<span class="glyphicon glyphicon-list"></span></div>
       <ul id="form-list">
         {{#each forms}}
-          meow
-        {{else}}
           <li>
-            <div class="form-title"><a>You don't have any forms yet!</a></div>
-            <div class="form-description">testing</div>
-            <div class="form-created">fake date woohoo</div>
+            <div class="form-title"><a href="/form/{{name}}">{{name}}</a></div>
+            <div class="form-description">{{description}}</div>
+            <div class="form-created">Created on {{date createdAt}}</div>
           </li>
         {{/each}}
       </ul>
@@ -21,7 +19,7 @@
       <ul id="folder-list">
         {{#each folders}}
           <li>
-            <div class="folder-title"><a href="/{{username}}/{{name}}">{{name}}</a></div>
+            <div class="folder-title"><a href="/folder/{{name}}">{{name}}</a></div>
             <div class="folder-description">{{description}}</div>
             <div class="folder-created">Created on {{date createdAt}}</div>
           </li>

@@ -1,6 +1,6 @@
-Template.folderList.helpers({
+Template.main.helpers({
   folders: function() {
-    return Template.instance().data;
+    return Template.instance().data.folders;
   },
 
   username: function() {
@@ -12,15 +12,15 @@ Template.folderList.helpers({
   },
 
   forms: function() {
-    return [];
+    return Template.instance().data.forms;
   }
 });
 
-Template.folderList.events({
-  'click .new-form': function() {
-    Router.go('/forms/new');
-  }
-});
+// Template.main.events({
+//   'click .new-form': function() {
+//     // Router.go('/forms/new');
+//   }
+// });
 
 $(document).ready(function() {
   $(document).on('click', '.new-folder', function() {
@@ -31,9 +31,18 @@ $(document).ready(function() {
   $(document).on('hidden.bs.modal', '#newFolder', function() {
     Blaze.remove(Blaze.getView(document.getElementById('newFolder')));
   });
-})
 
-Template.folderList.onRendered(function() {
+  $(document).on('click', '.new-form', function() {
+    Blaze.render(Template.newForm, document.getElementById('modals'));
+    $('#newForm').modal('show');
+  });
+
+  $(document).on('hidden.bs.modal', '#newform', function() {
+    Blaze.remove(Blaze.getView(document.getElementById('newForm')));
+  });
+});
+
+Template.main.onRendered(function() {
 
   $('.new-folder').hover(function(event) {
     $('.glyphicon-folder-close').addClass('glyphicon-folder-open');
